@@ -35,4 +35,6 @@ int main(){
 	printf("\nremoveu do fim:\n%f \n\n",y);
 	printf("\nlista atual:\n");
 	mostra_lista(l1,mostra_float);
-}
+} 
+
+//ADICIONANDO AQUI SÓ UNS COMENTÁRIOS A FIM DE FAZER EXPERIMENTOS COM O GITHUB
