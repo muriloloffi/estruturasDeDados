@@ -10,7 +10,7 @@ void inicializa_lista(Lista *p, int t){
 }
 
 int lista_vazia(Lista l){
-	return l.cabeca == NULL;
+	return l.cabeca == NULL; //se o cabeca não aponta pra nenhum elemento, a lista está vazia
 }
 
 /*int insereNoInicio(Lista *p, void *info){
@@ -97,23 +97,23 @@ int insereNoFim(Lista *l, void *info){
 }
 
 int removeDoFim(Lista *l, void *info){
-	if(lista_vazia(*l))
+	if(lista_vazia(*l))  //verifica se a lista já está vazia
 		return ERRO_LISTA_VAZIA;
-	if(l->cabeca->proximo == NULL) //Somente 1 elemento.
-		return removeDoInicio(l,info); //Novamente reutilizando código.
-	Elemento *p = l->cabeca;
-	while(p->proximo->proximo != NULL){ 
+	if(l->cabeca->proximo == NULL) 		//Para esta codição há somente 1 elemento na lista.
+		return removeDoInicio(l,info); 		//Novamente reutilizando código.
+	Elemento *p = l->cabeca;     
+	while(p->proximo->proximo != NULL){ //'p' percorre a lista até seu penúltimo elemento
 		p = p->proximo;	
-		/* Como o último elemento não tem ponteiro apontando para o elemento,
-		por isso a lista é percorrida apenas até o penúltimo*/
+			/* Como o último elemento não tem ponteiro apontando para o elemento antecessor,
+			por isso a lista é percorrida apenas até o penúltimo!*/
 	}
-	Elemento *x = p->proximo; //Este será o elemento desalocado
-	memcpy(info, x->info, l->tamInfo);
-	free(x->info);
-	free(x);
-	p->proximo = NULL; 
-	/*Penúltimo elemento passa a apontar para NULL sem que seja necessário
-	percorrer toda a lista novamente*/
+	Elemento *x = p->proximo; //Novo elemento x recebe o último. Este será o elemento desalocado.
+	memcpy(info, x->info, l->tamInfo); //copia informação para o ponteiro info, que ficará disponível
+	free(x->info); //desaloca a informação do último elemento.
+	free(x); //desaloca o último elemento.
+	p->proximo = NULL;
+		/*Penúltimo elemento passa a apontar para NULL sem que seja necessário
+		percorrer toda a lista novamente*/
 	return 1; //sucesso
 }
 	
@@ -126,14 +126,17 @@ void desaloca_lista(Lista *l){
 		p=proximo;
 	}
 	l->cabeca = NULL;
-} //MÉTODO N.1
+}
+
+//MÉTODO N.1
 
 /* MÉTODO N.2:
 Podemos utilizar abstração e resolver o mesmo problema com um
-código mais elegante
+código mais elegante */
 
-void desaloca_lista_v2(Lista *l){
-	void *aux = malloc(l->tamInfo);
+/*
+void desaloca_lista_v2(Lista *l){ 
+	void *aux = malloc(l->tamInfo); //cria-se um ponteiro que recebe
 	while(!lista_vazia(*l)){
 		removeDoInicio(l,aux);
 	}

@@ -1,12 +1,14 @@
-#define ERRO_LISTA_VAZIA -1
+#define ERRO_LISTA_VAZIA -1 //####POR QUE MESMO O "DEFINE ERRO_LISTA_VAZIA" é utilizado?
 #include <stdio.h>
 
-typedef struct ele{ //aqui a gente dá nome "ele" à estrutura para que ela possa se auto referenciar na declaração do ponteiro proximo 
+typedef struct ele{ 
+		/*aqui a gente dá nome "ele" à estrutura para que ela possa se auto 
+		referenciar na declaração do ponteiro proximo*/ 
 	void *info;
 	struct ele *proximo;
 }Elemento;
 
-typedef struct{
+typedef struct{ //
 	Elemento *cabeca;
 	int tamInfo;
 }Lista;
@@ -21,4 +23,4 @@ int removeDoInicio(Lista *l, void *info);
 int insereNoFim(Lista *l, void *info);
 int removeDoFim(Lista *l, void *info);
 void desaloca_lista(Lista *l);
-void desaloca_lista_v2(Lista *l);
+//void desaloca_lista_v2(Lista *l);
