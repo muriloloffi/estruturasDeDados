@@ -1,8 +1,12 @@
+//main.c
+
 #include "Lista.h"
 
 void mostra_float(void *p){
 	printf("%.1f\n", *(float *)p);
 }
+
+
 
 int main(){
 	Lista l1;
@@ -35,6 +39,19 @@ int main(){
 	printf("\nremoveu do fim:\n%f \n\n",y);
 	printf("\nlista atual:\n");
 	mostra_lista(l1,mostra_float);
-} 
-
-//ADICIONANDO AQUI SÓ UNS COMENTÁRIOS A FIM DE FAZER EXPERIMENTOS COM O GITHUB
+	printf("\n\nInserido na posição 3:\n");
+	x=7;
+	insereNaPos(&l1, &x, 3);
+	mostra_lista(l1,mostra_float);
+	printf("\n\nInseridos na posição 3:\n");
+	x=4.7;
+	insereNaPos(&l1, &x, 3);
+	x=5.1;
+	insereNaPos(&l1, &x, 3);
+	mostra_lista(l1,mostra_float);
+	removeDaPos(&l1, &x, 1);
+	printf("\nRemovida na posicao 1: %.1f\n", x);
+	mostra_lista(l1,mostra_float);
+	leNaPos(&l1, &y, 3);
+	printf("\n\nLeitura na posicao 3: %.1f\n", y);
+}
