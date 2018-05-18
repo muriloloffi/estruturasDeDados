@@ -30,7 +30,8 @@ int lista_vazia(Lista l){
 	return l.cabeca == NULL;
 }
 
-/*int insereNoInicio(Lista *p, void *info){
+/*
+int insereNoInicio(Lista *p, void *info){
 	Elemento *novo = malloc(sizeof(Elemento));
 	if (novo == NULL)
 		return 0; //erro! faltou memória
@@ -43,11 +44,11 @@ int lista_vazia(Lista l){
 	novo->proximo = p->cabecaca;
 	p->cabeca = novo;
 	return 1; //sucesso
-}*/
+} 
+*/
 
-/* >>>>>FUNÇÃO 'INSERE NO INICIO' ACIMA */
-/* >>>>>REFATORADA ABAIXO */
-/* >>>>>FUNÇÃO 'ALOCA ELEMENTO' SERÁ REUTILIZADA */ 
+
+//--> REFATORANDO A FUNÇÃO ACIMA, TEM-SE: 
 
 Elemento *aloca_ele(void *x, int t){
 	Elemento *p=malloc(sizeof(Elemento));
@@ -133,6 +134,8 @@ int removeDoFim(Lista *l, void *info){
 	percorrer toda a lista novamente*/
 	return 1; //sucesso
 }
+
+//MÉTODO N.1 para desalocação de lista:
 	
 void desaloca_lista(Lista *l){
 	Elemento *p = l->cabeca;
@@ -143,12 +146,13 @@ void desaloca_lista(Lista *l){
 		p=proximo;
 	}
 	l->cabeca = NULL;
-} //MÉTODO N.1
+}
 
-/* MÉTODO N.2:
+/*MÉTODO N.2:
 Podemos utilizar abstração e resolver o mesmo problema com um
-código mais elegante
+código mais elegante*/
 
+/*
 void desaloca_lista_v2(Lista *l){
 	void *aux = malloc(l->tamInfo);
 	while(!lista_vazia(*l)){
@@ -217,6 +221,7 @@ int leNaPos(Lista *l, void *info, int pos){
 	}
 	if(cont != pos)
 		return ERRO_POS_INVALIDA;
-	memcpy(info, p->info, l->tamInfo); //para a função modificaNaPos, basta inverter os 2 primerios parâmetros.
+	memcpy(info, p->info, l->tamInfo); 
+	/*para a função modificaNaPos, basta inverter os 2 primerios parâmetros no memcpy.*/
 	return 1; //sucesso
 }
