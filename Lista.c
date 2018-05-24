@@ -235,10 +235,20 @@ int busca(Lista l, void *chave, int (*compara)(void *, void *)){
 	Elemento *p = l.cabeca;
 	int cont = 0;
 	while(p != NULL){
-		if(compara(chave,p->info)==0)
+		if(compara(chave, p->info) == 0)
 			return cont; //ENCONTROU!
 		cont++; //DO CONTRÁRIO CONTINUA PERCORRENDO
 		p = p->proximo;
 		}
 	return -1; //Não encontrou
-}	
+}
+
+int insereEmOrdem (Lista *l, void *info, int (*compara)(void *, void *)){
+	Elemento *p = l->cabeca;
+	int cont = 0;
+	while (p != NULL && compara(p->info, info)<0){
+		cont++;
+		p=p->proximo;
+	}
+	return insereNaPos(l, info, cont);
+}

@@ -8,7 +8,7 @@ void mostra_float(void *p){
 }
 
 int compara_float(void *a, void *b){
-	float *x = a, *y = b;
+	float *x = a, *y = b; //Pode ser feito cast aqui, assim como na função 'mostra_float'
 	if(*x > *y)
 		return 1; // A > B
 	if(*x < *y)
@@ -67,5 +67,15 @@ int main(){
 	//x=5.1;
 //int pos = busca(Lista l1, &x, compara_float){
 	//	printf("\n\nPosicao do valor 5.1: %d\n", count);
+	x=11;
+	scanf("%f",&x);
+	while(x!=0){
+		insereEmOrdem(&l1, &x, compara_float);
+		mostra_lista(l1,mostra_float);
+		scanf("%f", &x);
+	}
+	desaloca_lista(&l1);
+
 	printf("\n\n\n NAO SE ESQUECAM GALERA,\n PROVA 3 ESTA CHEGANDO \n NO DIA 06/06\n");
+	return 0;
 }

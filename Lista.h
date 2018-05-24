@@ -44,3 +44,4 @@ int removeDaPos(Lista *l, void *info, int pos);
 int leNaPos(Lista *l, void *info, int pos);
 int quantidade(Lista l);
 int busca(Lista l, void *chave, int (*compara)(void *, void *));
+int insereEmOrdem (Lista *l, void *info, int (*compara)(void *, void *));
