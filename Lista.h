@@ -17,7 +17,6 @@
 
 #define ERRO_LISTA_VAZIA -1
 #define ERRO_POS_INVALIDA -2
-#include <stdio.h>
 
 typedef struct ele{ //aqui a gente dá nome "ele" à estrutura para que ela possa se auto referenciar na declaração do ponteiro proximo 
 	void *info;
@@ -43,3 +42,5 @@ void desaloca_lista_v2(Lista *l);
 int insereNaPos(Lista *l, void *info, int pos);
 int removeDaPos(Lista *l, void *info, int pos);
 int leNaPos(Lista *l, void *info, int pos);
+int quantidade(Lista l);
+int busca(Lista l, void *chave, int (*compara)(void *, void *));

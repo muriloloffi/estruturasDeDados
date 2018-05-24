@@ -1,12 +1,22 @@
 //main.c
 
 #include "Lista.h"
+#include <stdio.h>
 
 void mostra_float(void *p){
 	printf("%.1f\n", *(float *)p);
 }
 
-
+int compara_float(void *a, void *b){
+	float *x = a, *y = b;
+	if(*x > *y)
+		return 1; // A > B
+	if(*x < *y)
+		return -1; // A < B
+	return 0;	// A == B
+	/*The 'compara_float' function is implemented here because it's 
+	the application's problem, not the library's problem.*/
+}
 
 int main(){
 	Lista l1;
@@ -54,4 +64,8 @@ int main(){
 	mostra_lista(l1,mostra_float);
 	leNaPos(&l1, &y, 3);
 	printf("\n\nLeitura na posicao 3: %.1f\n", y);
+	//x=5.1;
+//int pos = busca(Lista l1, &x, compara_float){
+	//	printf("\n\nPosicao do valor 5.1: %d\n", count);
+	printf("\n\n\n NAO SE ESQUECAM GALERA,\n PROVA 3 ESTA CHEGANDO \n NO DIA 06/06\n");
 }
