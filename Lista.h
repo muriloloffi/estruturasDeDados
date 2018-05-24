@@ -1,5 +1,5 @@
  /********************************************************           
-  * TAD Lista -- program to initialize, manipulate and   *
+  * TAD LDE -- program to initialize, manipulate and     *
   *            print Lists.                              *
   *                                                      *   
   * Author:  LOFFI, Murilo                               *   
@@ -8,7 +8,9 @@
   *                                                      *   
   * Usage:                                               *   
   *      Edit the main.c archive to include fuctions and *
-  *      variables at your desire.                       *   
+  *      variables at your desire.                       *
+  *	 Every element points to its next and previous   *
+  *	 one.						 *  
   ********************************************************/
 
 
@@ -20,13 +22,13 @@
 
 typedef struct ele{ //aqui a gente dá nome "ele" à estrutura para que ela possa se auto referenciar na declaração do ponteiro proximo 
 	void *info;
-	struct ele *proximo;
-}Elemento;
+	struct ele *suc, *ant;
+}ElementoDuplo;
 
 typedef struct{
-	Elemento *cabeca;
 	int tamInfo;
-}Lista;
+	ElementoDuplo *cabeca;
+}LDE;
 
 int lista_vazia(Lista l);
 void inicializa_lista(Lista *p, int t);

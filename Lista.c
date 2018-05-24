@@ -21,14 +21,14 @@
 #include <string.h>
 
 
-void inicializa_lista(Lista *p, int t){
+void inicializa_lista(LDE *p, int t){
 	p->cabeca=NULL;
 	p->tamInfo=t;
-}
+} //fica igual REFATORAR PARA DECLARAR LDE
 
-int lista_vazia(Lista l){
+int lista_vazia(LDE l){
 	return l.cabeca == NULL;
-}
+} //fica igual 
 
 /*int insereNoInicio(Lista *p, void *info){
 	Elemento *novo = malloc(sizeof(Elemento));
@@ -50,7 +50,7 @@ int lista_vazia(Lista l){
 /* >>>>>FUNÇÃO 'ALOCA ELEMENTO' SERÁ REUTILIZADA */ 
 
 Elemento *aloca_ele(void *x, int t){
-	Elemento *p=malloc(sizeof(Elemento));
+	ElementoDuplo *p=malloc(sizeof(ElementoDuplo));
 	if(p == NULL)
 		return NULL; //Erro!
 	p->info = malloc(t);
@@ -62,12 +62,17 @@ Elemento *aloca_ele(void *x, int t){
 	return p;
 }
 
-int insereNoInicio(Lista *l, void *info){
-	Elemento *novo = aloca_ele(info, l->tamInfo);
+int insereNoInicio(LDE *l, void *info){
+	ElementoDuplo *novo = aloca_ele(info, l->tamInfo);
 	if(novo == NULL)
 		return 0; //Erro na alocacao
-	novo->proximo = l->cabeca;
+	
+	novo->suc = l->cabeca;
 	l->cabeca = novo;
+	novo->ant = NULL;
+	if(novo->suc != NULL){
+		novo->suc->ant = novo; //MACHINES ARE SO BEAUTIFUL
+	}
 	return 1; //sucesso
 }
 
@@ -80,7 +85,7 @@ void mostra_lista(Lista l, void(*mostra)(void*)){
 		mostra(p->info);
 		p = p->proximo;
 		}
-	}
+	} //ADAPTAR PARA LDE
 }
 
 int removeDoInicio(Lista *l, void *info){
@@ -142,8 +147,8 @@ void desaloca_lista(Lista *l){
 		free(p);
 		p=proximo;
 	}
-	l->cabeca = NULL;
-} //MÉTODO N.1
+	l->cabeca = NULL; //ADAPTAR PARA LDE
+} //MÉTODO N.1 
 
 /* MÉTODO N.2:
 Podemos utilizar abstração e resolver o mesmo problema com um
