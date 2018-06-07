@@ -252,3 +252,22 @@ int insereEmOrdem (Lista *l, void *info, int (*compara)(void *, void *)){
 	}
 	return insereNaPos(l, info, cont);
 }
+
+
+//EXERCICIO 2 - LISTA 5
+int maior(Lista l, int (*compara)(void *, void*)){
+	if(lista_vazia(l))
+		return ERRO_LISTA_VAZIA;
+	Elemento *p = l.cabeca;
+	int cont = 0, i_maior=0;
+	void *maior=p->info;
+	while(p!=NULL){
+		if(compara(p->info,maior)>0){
+			maior=p->info;
+			i_maior=cont;
+		}
+		p=p->proximo;
+		cont++;
+	}
+	return i_maior;
+}
