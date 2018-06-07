@@ -236,7 +236,7 @@ int quantidade(Lista l){
 	return count;
 }
 
-int busca(Lista l, void *chave, int (*compara)(void *, void *)){
+int busca(LDE l, void *chave, int (*compara)(void *, void *)){
 	Elemento *p = l.cabeca;
 	int cont = 0;
 	while(p != NULL){
@@ -246,4 +246,22 @@ int busca(Lista l, void *chave, int (*compara)(void *, void *)){
 		p = p->proximo;
 		}
 	return -1; //Não encontrou
-}	
+}//REFATORAR p/ LDE
+
+//EXERCICIO 9 - LISTA 5
+void inverte (LDE l){
+	EleDuplo *p1=l.cabeca;
+	EleDuplo *p2=l.cabeca;
+	while(p2->suc!=NULL)
+		p2=p2->suc;
+	while(p1 != p2 && p2->suc != p1){
+ 		/*também poderíamos utilizar 'p2 != p1->ant'
+		como critério de parada*/
+		void *aux = p1->info;
+		p1->info = p2->info;
+		p2->info = aux;
+		p1 = p1->suc;
+		p2 = p2->ant;
+	}
+}
+
