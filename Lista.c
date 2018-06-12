@@ -121,8 +121,8 @@ int removeDoFim(Lista *l, void *info){
 	Elemento *p = l->cabeca;
 	while(p->proximo->proximo != NULL){ 
 		p = p->proximo;	
-		/* Como o último elemento não tem ponteiro apontando para o elemento,
-		por isso a lista é percorrida apenas até o penúltimo*/
+		/* Como o último elemento não tem ponteiro apontando para o ele-
+		mento, por isso a lista é percorrida apenas até o penúltimo*/
 	}
 	Elemento *x = p->proximo; //Este será o elemento desalocado
 	memcpy(info, x->info, l->tamInfo);
@@ -133,7 +133,8 @@ int removeDoFim(Lista *l, void *info){
 	percorrer toda a lista novamente*/
 	return 1; //sucesso
 }
-	
+
+//MÉTODO N.1:	
 void desaloca_lista(Lista *l){
 	Elemento *p = l->cabeca;
 	while (p != NULL){
@@ -143,7 +144,7 @@ void desaloca_lista(Lista *l){
 		p=proximo;
 	}
 	l->cabeca = NULL;
-} //MÉTODO N.1
+}
 
 /* MÉTODO N.2:
 Podemos utilizar abstração e resolver o mesmo problema com um
@@ -221,6 +222,7 @@ int leNaPos(Lista *l, void *info, int pos){
 	return 1; //sucesso
 }
 
+//5.1
 int quantidade(Lista l){
 	Elemento *p = l.cabeca;
 	int count = 0;
@@ -271,3 +273,5 @@ int maior(Lista l, int (*compara)(void *, void*)){
 	}
 	return i_maior;
 }
+
+
