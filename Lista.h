@@ -23,11 +23,11 @@
 typedef struct ele{ //aqui a gente dá nome "ele" à estrutura para que ela possa se auto referenciar na declaração do ponteiro proximo 
 	void *info;
 	struct ele *suc, *ant;
-}ElementoDuplo;
+}EleDuplo;
 
 typedef struct{
 	int tamInfo;
-	ElementoDuplo *cabeca;
+	EleDuplo *cabeca;
 }LDE;
 
 int lista_vazia(Lista l);

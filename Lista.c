@@ -49,8 +49,8 @@ int lista_vazia(LDE l){
 /* >>>>>REFATORADA ABAIXO */
 /* >>>>>FUNÇÃO 'ALOCA ELEMENTO' SERÁ REUTILIZADA */ 
 
-Elemento *aloca_ele(void *x, int t){
-	ElementoDuplo *p=malloc(sizeof(ElementoDuplo));
+EleDuplo *aloca_ele(void *x, int t){
+	EleDuplo *p=malloc(sizeof(EleDuplo));
 	if(p == NULL)
 		return NULL; //Erro!
 	p->info = malloc(t);
