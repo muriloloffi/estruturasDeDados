@@ -31,7 +31,7 @@ typedef struct{
 }LDE;
 
 int lista_vazia(LDE l);
-void inicializa_lista(Lista *p, int t);
+void inicializa_lista(LDE *p, int t);
 EleDuplo *aloca_ele(void *x, int t);
 int insereNoInicio(LDE *l, void *info);
 void mostra_lista(LDE l, void(*mostra)(void*));

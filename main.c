@@ -19,7 +19,7 @@ int compara_float(void *a, void *b){
 }
 
 int main(){
-	Lista l1;
+	LDE l1;
 	inicializa_lista(&l1, sizeof(float));
 	float x=1,y=0;
 	insereNoInicio(&l1,&x);

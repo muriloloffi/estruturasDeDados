@@ -130,7 +130,7 @@ int removeDoFim(LDE *l, void *info){
 		p = p->suc;	
 		/* Condição de parada no penultimo elemento, que após a operação apontará para NULL */
 	}
-	Elemento *x = p->suc; //Este será o elemento desalocado
+	EleDuplo *x = p->suc; //Este será o elemento desalocado
 	memcpy(info, x->info, l->tamInfo);
 	free(x->info);
 	free(x);
@@ -146,7 +146,7 @@ void desaloca_lista(LDE *l){
 		EleDuplo *sucessor = p->suc;
 		free(p->info);
 		free(p);
-		p=suc;
+		p=sucessor;
 	}
 	l->cabeca = NULL; //ADAPTAR PARA LDE
 } //MÉTODO N.1 
@@ -184,7 +184,7 @@ int insereNaPos(LDE *l, void *info, int pos){
 		return 0; //Erro na alocação
 	novo->suc = p->suc;
 	p->suc->ant = novo; 		//atenção com a ordem neste fim,
-	p->proximo = novo; 		//caso 'p->proximo = novo'
+	p->suc = novo; 		//caso 'p->proximo = novo'
 	novo->ant = p;
 	return 1; //sucesso
 }
