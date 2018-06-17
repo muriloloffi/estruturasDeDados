@@ -170,7 +170,7 @@ int insereNaPos(LDE *l, void *info, int pos){
 	if (pos == 0)
 		return insereNoInicio(l, info); //chamamento de função == reaproveitando código
 	if (lista_vazia(*l)) 
-		return ERRO_POS_INVALIDA; //caso a posição > 0
+		return ERRO_POS_INVALIDA; 	//caso a posição > 0
 	EleDuplo *p = l->cabeca;
 	int cont = 0;
 	while(cont < pos-1 && p->suc != NULL ){
@@ -181,11 +181,11 @@ int insereNaPos(LDE *l, void *info, int pos){
 		return ERRO_POS_INVALIDA;
 	EleDuplo *novo = aloca_ele(info, l->tamInfo);
 	if(novo == NULL)
-		return 0; //Erro na alocação
+		return 0; 		//Erro na alocação
 	novo->suc = p->suc;
-	p->suc->ant = novo; 		//atenção com a ordem neste fim,
-	novo->ant = novo->suc->ant;
-	p->suc = novo; 		//caso 'p->proximo = novo'
+	p->suc = novo;
+	novo->suc->ant = novo; 		//atenção com a ordem neste fim,
+	novo->ant = p;			//caso 'p->proximo = novo'
 	return 1; //sucesso
 }
 

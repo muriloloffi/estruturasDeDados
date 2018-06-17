@@ -49,12 +49,12 @@ int main(){
 	printf("\nremoveu do fim:\n%f \n\n",y);
 	printf("\nlista atual:\n");
 	mostra_lista(l1,mostra_float);
-	printf("\n\nInserido na posição 3:\n");
 	x=7;
-	insereNaPos(&l1, &x, 3);
+	printf("\n\nInserido na posição 3: %f\n\n", x);
+	insereNaPos(&l1, &x, 2);
 	mostra_lista(l1,mostra_float);
-	printf("\n\nInseridos na posição 3:\n");
 	x=4.7;
+	printf("\n\nInseridos na posição 4: %f\n", x);
 	insereNaPos(&l1, &x, 3);
 	x=5.1;
 	insereNaPos(&l1, &x, 3);
