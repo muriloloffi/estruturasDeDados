@@ -184,8 +184,8 @@ int insereNaPos(LDE *l, void *info, int pos){
 		return 0; //Erro na alocação
 	novo->suc = p->suc;
 	p->suc->ant = novo; 		//atenção com a ordem neste fim,
+	novo->ant = novo->suc->ant;
 	p->suc = novo; 		//caso 'p->proximo = novo'
-	novo->ant = p;
 	return 1; //sucesso
 }
 
