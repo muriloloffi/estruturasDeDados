@@ -46,3 +46,4 @@ int removeDaPos(LDE *l, void *info, int pos);
 int leNaPos(LDE *l, void *info, int pos);
 int quantidade(LDE l);
 int busca(LDE l, void *chave, int (*compara)(void *, void *));
+int maior(LDE l, int (*compara)(void *, void*));

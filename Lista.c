@@ -250,7 +250,7 @@ int busca(LDE l, void *chave, int (*compara)(void *, void *)){
 		p = p->suc;
 		}
 	return -1; //Não encontrou
-}//REFATORAR p/ LDE
+}
 
 //EXERCICIO 9 - LISTA 5
 void inverte (LDE l){
@@ -269,3 +269,20 @@ void inverte (LDE l){
 	}
 }
 
+//EXERCICIO 2 - LISTA 5
+int maior(LDE l, int (*compara)(void *, void*)){
+	if(lista_vazia(l))
+		return ERRO_LISTA_VAZIA;
+	EleDuplo *p = l.cabeca;
+	int cont = 0, i_maior=0;
+	void *maior=p->info;
+	while(p!=NULL){
+		if(compara(p->info,maior)>0){
+			maior=p->info;
+			i_maior=cont;
+		}
+		p=p->suc;
+		cont++;
+	}
+	return i_maior;
+}
