@@ -1,6 +1,6 @@
 //multi-lista - Lista de listas (matriz)
 
-#include "Lista.h"
+#include "List.h"
 
 int main(){
 

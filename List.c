@@ -1,6 +1,6 @@
 /********************************************************
  * TAD Lista -- program to initialize, manipulate and   *
- *            print Lists.                              *
+ *            	print Lists.                            *
  *                                                      *
  * Author:  LOFFI, Murilo                               *
  *                                                      *
@@ -15,7 +15,7 @@
 //Lista.c
 
 
-#include "Lista.h"
+#include "List.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
